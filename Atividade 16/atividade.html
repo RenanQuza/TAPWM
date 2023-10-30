@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Atividade de TAPWM:Transformar Texto em Maiúsculas/Minúsculas</title>
+</head>
+<body>
+  <form>
+    <label for="inputText">Escreva aqui:</label>
+    <input type="text" id="inputText"><br>
+
+    <label for="toUppercase">Transformar em Maiúsculas:</label>
+    <input type="checkbox" id="toUppercase"><br>
+
+    <label for="toLowercase">Transformar em Minúsculas:</label>
+    <input type="checkbox" id="toLowercase"><br>
+
+    <button type="button" onclick="transformText()">Transformar Texto</button>
+  </form>
+
+  <script>
+    function transformText() {
+      var inputText = document.getElementById("inputText");
+      var toUppercase = document.getElementById("toUppercase");
+      var toLowercase = document.getElementById("toLowercase");
+
+      var text = inputText.value;
+
+      if (toUppercase.checked) {
+        text = text.toUpperCase();
+      }
+
+      if (toLowercase.checked) {
+        text = text.toLowerCase();
+      }
+
+      inputText.value = text;
+     }
+  </script>
+</body>
+</html>
