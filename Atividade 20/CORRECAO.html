@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //questão 1
+        //primeiro jeito de criar um objeto
+        var ObjLivro1 = {
+            Titulo: "Dom Casmurro",
+            Autor : "Machado de Assis"
+        }
+        alert(ObjLivro1.Titulo + " " + ObjLivro1.Autor)
+        alert(`${ObjLivro1.Titulo} ${ObjLivro1.Autor}`)
+        alert(JSON.stringify(ObjLivro1))
+
+        //segundo jeito
+        var ObjLivro2 = {};
+        ObjLivro2.Titulo = "Dom Casmurro";
+        ObjLivro2.Autor = "Machado de Assis";
+
+        //terceiro jeito
+        var ObjLivro3 = new Object();
+        ObjLivro3.Titulo = "Dom Casmurro";
+        ObjLivro3.Autor = "Machado de Assis";
+
+
+        //definindo a funcao construtora Livro
+        function Livro(_Titulo, _Autor)
+        {
+            this.Titulo = _Titulo;
+            this.Autor = _Autor;
+        }
+        var objLivro4 = new Livro('Dom Casmurro', "Machado de Assis");
+
+        //Definindo a classe Livro1
+        class Livro1 {
+            constructor(titulo, autor){
+                this.titulo = titulo;
+                this.autor = autor;
+            }
+        }
+        const objLivro5 = new Livro1("Titulo do livro", "Autor do livro");
+
+        //questão 5:
+        //primeiro jeito
+        function Ordena(n1,n2,n3){
+            var matriz = [n1,n2,n3];
+            matriz.sort(function(a,b) {b-a});
+            return matriz;
+        }
+        alert(Ordena(5,2,2));
+
+        //segundo jeito
+        function Ordena2(n1,n2,n3){
+            var matriz = [n1,n2,n3];
+            matriz.sort(function(a,b) {a-b});
+            matriz.reverse();
+            return matriz;
+        }
+        alert(Ordena2(5,2,2));
+
+        function Ordena3(n1,n2,n3){
+            let maior = Math.max(n1,n2,n3);
+            let menor = Math.min(n1,n2,n3);
+            let meio;
+            if(n1 !== maior && n1 !== menor){
+                meio = n1;
+            }else if (n2 !== maior && n2 !== menor) {
+                meio = n2;
+            }else {
+                meio = n3;
+            }
+            return `${maior} ${meio} ${menor}`;
+        }
+        alert(Ordena3(10,5,8));
+        //questão 6:
+        var texto = '{"descricao": "Produto A", "codigo": 123}';
+        var objeto = JSON.parse(texto);
+        alert(objeto.descricao + " " +objeto.descricao.codigo);
+        //ou
+        alert(`${objeto.descricao} ${objeto.codigo}`);
+    </script>
+</body>
+</html>
